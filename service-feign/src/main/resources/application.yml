@@ -1,0 +1,15 @@
+server:
+  port: 8765
+spring:
+  application:
+    name: service-feign
+  zipkin:
+    base-url: http://localhost:9411
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+# Feign是自带断路器的，在D版本的Spring Cloud之后，它没有默认打开。需要在配置文件中配置打开它，在配置文件加以下代码
+feign:
+  hystrix:
+    enabled: true
